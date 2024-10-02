@@ -9,7 +9,6 @@ Este es un servicio de **API REST** desarrollado como parte del primer parcial d
 La API permite obtener y almacenar información sobre objetivos de los usuarios, siempre que el usuario esté autenticado. Se utiliza una base de datos MongoDB para gestionar los datos, y las principales características de la API incluyen:
 
 - Autorización mediante Basic Auth
-- Paginación
 - Validación de parámetros de entrada
 - Manejador de errores
 
@@ -38,6 +37,8 @@ npm install
 ## Característica
 - Node js
 - NPM
+- checkSchema
+- Mongoose
 
 ## Comandos
 Run Local:
@@ -95,10 +96,12 @@ src\
       - **segundoNombre**: opcional
       - **primerApellido**:  requerido
       - **segundoApellido**: opcional
-      - **correo**:  requerido
+      - **sexo**: requerido  (debe ser "M" o "F")
+      - **correo**:  requerido, úinco
       - **contraseña**: requerido (debe tener mínimo 6 caracteres, al menos una letra mayúscula, una minúscula y un número)
-      - **fechaNacimiento**: requerido (formato YYYY-MM-DD)
-      - **sexo**: requerido (debe ser "M" o "F")
+      - **fechaNacimiento**: requerido (formato YYYY-MM-DD, fecha anterior a la actual)
+
+
         
         
 - Response
@@ -120,10 +123,15 @@ src\
 - Request
     - **body:**
         - **nombre** :  requerido
+        - **usuarioId**: requerido, tipo id mongo
         - **descripcion** : opcional
-        - **fechaFinalizacion** : opcional (formato YYYY-MM-DD)
-        - **prioridad** : opcional (puede ser "alta", "media", "baja")
-        - **categoria** : opcional (ej. "academico", "personal")
+        - **fechaFinalizacion** : opcional (formato YYYY-MM-DD, fecha posterior a la actual)
+        - **prioridad** : opcional (puede ser "Alta", "Media", "Baja", por defecto es Mediana)
+        - **categoria** : opcional (ej. "Personal", "Profesional", "Otra", por defecto es Personal)
+        - **Subobjetivos**:
+        - **Subobjetivos.nombre**: requerido, string
+        - **Subobjetivo.descripción**: requerido, string
+        - **Subobjetivo.completado**: Por defecto false, solo se puede cambiar el estado al acceder al endpoint         de modificar objetivo
 - Response
     - **success :** boolean
     - **data :** json
@@ -132,12 +140,16 @@ src\
 <code>PUT /api/objetivos/:id</code>
 - Request
     - **body**
-        - **id** :  requerido
-        - **nombre** :  opcional
+        - **nombre** :  requerido
+        - **usuarioId**: requerido, tipo id mongo
         - **descripcion** : opcional
-        - **fechaFinalizacion** : opcional
-        - **prioridad** : opcional
-        - **categoria** : opcional 
+        - **fechaFinalizacion** : opcional (formato YYYY-MM-DD, fecha posterior a la actual)
+        - **prioridad** : opcional (puede ser "Alta", "Media", "Baja", por defecto es Mediana)
+        - **categoria** : opcional (ej. "Personal", "Profesional", "Otra", por defecto es Personal)
+        - **Subobjetivos**:
+        - **Subobjetivos.nombre**: requerido, string
+        - **Subobjetivo.descripción**: requerido, string
+        - **Subobjetivo.completado**: Por defecto false, solo se puede cambiar el estado al acceder al endpoint         de modificar objetivo
 - Response
     - **success :** boolean
     - **data :** json
@@ -146,7 +158,7 @@ src\
 <code>DELETE /api/objetivos/:id</code> 
 - Request
     - **params:**
-        - **id** : requerido 
+        - **id** : requerido, tipo mongo
 - Response
     - **data :** array
     - **msg :** string 
