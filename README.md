@@ -71,7 +71,7 @@ src\
  |--config\         # Variables de entorno y configuración 
  |--controllers\    # Controladores 
  |--middlewares\    # Middleware Personalizados
- |--models\         # Postgrest models (data layer) 
+ |--models\         # MongoDB models (data layer) 
  |--routers\         # Rutas del sistema
  |--services\       # Servicios de conexión BD y Token 
  |--validator\      # Esquemas de validación
