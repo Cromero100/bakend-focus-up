@@ -15,11 +15,13 @@ const objetivoSchema = new mongoose.Schema({
   prioridad: {
     type: String,
     enum: ["Baja", "Mediana", "Alta"], // Prioridad con valores permitidos
-    default: "media", // Valor por defecto si no se proporciona
+    default: "Mediana",
+    required: true, // Valor por defecto si no se proporciona
   },
   categoria: {
     type: String,
-    enum: ["Personal", "Profesional", "Otra"], // Categorías posibles
+    enum: ["Personal", "Profesional", "Otra"],
+    default: "Personal", // Categorías posibles
     required: true,
   },
   usuarioId: {
