@@ -54,8 +54,6 @@ Run Producción:
 ```
 ###> CONFIG SERVER <####
 PORT=8000
-URL_SERVER=http:\\127.0.0.1:8000\
-###> CONFIG SERVER <####
 
 ###> DB_CONNECTION ### 
 DB_URL=mongodb://localhost:27017/focus
