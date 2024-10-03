@@ -1,4 +1,4 @@
-# bakend-focus-up
+# backend-focus-up
 
 # Primer Parcial 2024 - Arquitectura Orientada a Servicios
 
@@ -61,7 +61,7 @@ URL_SERVER=http:\\127.0.0.1:8000\
 DB_URL=mongodb://localhost:27017/focus
 ###< CONFIGURE SERVER ###
 
-###> SECRET_KEY ###
+###> JWT_HASH ###
 JWT_HASH =password2024-250A
 ###< SECRET_KEY ###
 ```
