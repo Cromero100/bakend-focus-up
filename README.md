@@ -92,14 +92,14 @@ src\
 <code>POST /auth/registro</code>
 - Request
     - **body**
-      - **primerNombre**:  requerido
-      - **segundoNombre**: opcional
-      - **primerApellido**:  requerido
-      - **segundoApellido**: opcional
-      - **sexo**: requerido  (debe ser "M" o "F")
-      - **correo**:  requerido, úinco
-      - **contraseña**: requerido (debe tener mínimo 6 caracteres, al menos una letra mayúscula, una minúscula y un número)
-      - **fechaNacimiento**: requerido (formato YYYY-MM-DD, fecha anterior a la actual)
+      - **primerNombre**: String, requerido
+      - **segundoNombre**: String, opcional
+      - **primerApellido**:  String, requerido
+      - **segundoApellido**: String, opcional
+      - **sexo**: String, requerido  (debe ser "M" o "F")
+      - **correo**:  String, requerido, úinco
+      - **contraseña**: String, requerido (debe tener mínimo 6 caracteres, al menos una letra mayúscula, una minúscula y un número)
+      - **fechaNacimiento**: String,requerido (formato YYYY-MM-DD, fecha anterior a la actual)
 
 
         
@@ -122,16 +122,16 @@ src\
   <code>POST /api/objetivos</code>
 - Request
     - **body:**
-        - **nombre** :  requerido
-        - **usuarioId**: requerido, tipo id mongo
-        - **descripcion** : opcional
-        - **fechaFinalizacion** : opcional (formato YYYY-MM-DD, fecha posterior a la actual)
-        - **prioridad** : opcional (puede ser "Alta", "Media", "Baja", por defecto es Mediana)
-        - **categoria** : opcional (ej. "Personal", "Profesional", "Otra", por defecto es Personal)
+        - **nombre** :  String, requerido
+        - **usuarioId**: String, requerido, tipo id mongo
+        - **descripcion** : String, opcional
+        - **fechaFinalizacion** : String, opcional (formato YYYY-MM-DD, fecha posterior a la actual)
+        - **prioridad** : String, opcional (puede ser "Alta", "Media", "Baja", por defecto es Mediana)
+        - **categoria** : String, opcional (ej. "Personal", "Profesional", "Otra", por defecto es Personal)
         - **Subobjetivos**:
         - **Subobjetivos.nombre**: requerido, string
         - **Subobjetivo.descripción**: requerido, string
-        - **Subobjetivo.completado**: Por defecto false, solo se puede cambiar el estado al acceder al endpoint         de modificar objetivo
+        - **Subobjetivo.completado**: Por defecto false, solo se puede cambiar el estado al acceder al endpoint de modificar objetivo
 - Response
     - **success :** boolean
     - **data :** json
@@ -140,12 +140,12 @@ src\
 <code>PUT /api/objetivos/:id</code>
 - Request
     - **body**
-        - **nombre** :  requerido
-        - **usuarioId**: requerido, tipo id mongo
-        - **descripcion** : opcional
-        - **fechaFinalizacion** : opcional (formato YYYY-MM-DD, fecha posterior a la actual)
-        - **prioridad** : opcional (puede ser "Alta", "Media", "Baja", por defecto es Mediana)
-        - **categoria** : opcional (ej. "Personal", "Profesional", "Otra", por defecto es Personal)
+        - **nombre** :  String, requerido
+        - **usuarioId**: String, requerido, tipo id mongo
+        - **descripcion** : String, opcional
+        - **fechaFinalizacion** : String, opcional (formato YYYY-MM-DD, fecha posterior a la actual)
+        - **prioridad** : String, opcional (puede ser "Alta", "Media", "Baja", por defecto es Mediana)
+        - **categoria** : String, opcional (ej. "Personal", "Profesional", "Otra", por defecto es Personal)
         - **Subobjetivos**:
         - **Subobjetivos.nombre**: requerido, string
         - **Subobjetivo.descripción**: requerido, string
